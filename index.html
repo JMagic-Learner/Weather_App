@@ -1,17 +1,91 @@
-!
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href= "https://openweathermap.org/api/one-call-api" rel= "stylesheet" />
-    <link href= "Assets/script.js" rel = "stylesheet" />
-    <title>Document</title>
+    <link href="Assets/weather-styling.css" type="text/css" rel="stylesheet"/>
+    
+    <title>Weather Application</title>
 </head>
 <body>
+    <div class = "banner-top">
+    <h1 class = "Banner"> Weather Application</h1>
+    </div>
+
+
+<section class="content">
+    <div class = "leftcolumn">
+        <div class = "query-box">
+            <p> Enter your city of choice</p>
+            <textarea class = "search" id = "search" rows = "1" cols = "30"></textarea>
+             <button class = "search-button" id = "search-function"> Search </button>
+         </div>
+
+        <div class = "city-list">
+            <ul class = "list">
+                <li><button id="Austin"> Austin </button></li>
+                <li><button id="Chicago"> Chicago</button></li>
+                <li><button id="NewYork"> New York</button></li>          
+                <li><button id="Orlando"> Orlando </button></li>
+                <li><button id="SanFrancisco"> San Francisco</button></li>
+            
+                <li><button id="Seattle"> Seattle</button></li>
+            
+                <li><button id="Denver"> Denver </button></li>
+            
+                <li><button id="Atlanta"> Atlanta</button></li>
+            </ul> 
+        </div>
+    </div>
+
+
 
     
-    
+    <section class = "innerdivision">
+    <div class = "rightcolumn" id = "right-column">
+        <ul>
+            <li  id = "city-name"><h1 class = "city">CITY</h1></li> 
+            <li class = "temperature" id = "city-temp"> Temperature</li>
+            <li id = "city-forecast"><p class = "precipitation">Rain Chance</p> </li>
+            <li id = "wind"><p class = "wind"> WIND</p>  </li>
+            <li id = "uv"><p class = "uv">UV</p></li>
+        </ul>
+    </div>
+
+    <div class="rightcolumn2"></div>
+        <div class = "columns">
+            <ul>
+                <li  id = "city-name"><h1 class = "city">CITY</h1></li> 
+                <li class = "temperature" id = "city-temp"> Temperature</li>
+                <li id = "city-forecast"><p class = "precipitation">Rain Chance</p> </li>
+                <li id = "wind"><p class = "wind"> WIND</p>  </li>
+                <li id = "uv"><p class = "uv">UV</p></li>
+            </ul>
+        </div>
+        <div class = "columns">
+            <ul>
+                <li  id = "city-name"><h1 class = "city">CITY</h1></li> 
+                <li class = "temperature" id = "city-temp"> Temperature</li>
+                <li id = "city-forecast"><p class = "precipitation">Rain Chance</p> </li>
+                <li id = "wind"><p class = "wind"> WIND</p>  </li>
+                <li id = "uv"><p class = "uv">UV</p></li>
+            </ul>
+        </div>
+
+        <div class = "columns"></div>
+        <div class = "columns"></div>
+        <div class = "columns"></div>
+    </div>
+</section>
+
+</section>
+
+
+
+
+    <script src= "Assets/script.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
 </body>
 </html>
