@@ -33,6 +33,7 @@ var temperature = "";
 function updateTable () {
   event.preventDefault();
   var text = $('.search').val();
+  cityNamePrevious = text;
   localStorage.setItem('query', text);
   cityName = localStorage.getItem('query');
   cityName = text;
@@ -172,9 +173,32 @@ function getFuture() {
      $("#day-two-time").text(data.list[8].dt_txt);
      $("#day-three-time").text(data.list[16].dt_txt);
      $("#day-four-time").text(data.list[24].dt_txt);
-     $("#day-five-time").text(data.list[8].dt_txt);
+     $("#day-five-time").text(data.list[32].dt_txt);
      console.log(data.list[0].dt_txt);
-     return;
+     $("#day-one-temperature").text("Temperature " +data.list[0].main.temp);
+     $("#day-two-temperature").text("Temperature " +data.list[8].main.temp);
+     $("#day-three-temperature").text("Temperature " +data.list[16].main.temp);
+     $("#day-four-temperature").text("Temperature " +data.list[24].main.temp);
+     $("#day-five-temperature").text("Temperature "+ data.list[32].main.temp);
+     //Finds Humidity in next 5 days
+     $("#day-one-precipitation").text("Precipitation % " +data.list[0].pop);
+     $("#day-two-precipitation").text("Precipitation % " +data.list[8].pop);
+     $("#day-three-precipitation").text("Precipitation % " +data.list[16].pop);
+     $("#day-four-precipitation").text("Precipitation % " +data.list[24].pop);
+     $("#day-five-precipitation").text("Precipitation % "+ data.list[32].pop);
+    // Finds Wind Forecast
+     $("#day-one-wind").text("Wind " +data.list[0].wind.speed);
+     $("#day-two-wind").text("Wind " +data.list[8].wind.speed);
+     $("#day-three-wind").text("Wind " +data.list[16].wind.speed);
+     $("#day-four-wind").text("Wind " +data.list[24].wind.speed);
+     $("#day-five-wind").text("Wind "+ data.list[32].wind.speed);
+     // Finds Weather
+   
+     $("#day-one-weather").text("weather " +data.list[0].weather.description);
+     $("#day-two-weather").text("weather " +data.list[8].weather.description);
+     $("#day-three-weather").text("weather " +data.list[16].weather.description);
+     $("#day-four-weather").text("weather " +data.list[24].weather.description);
+     $("#day-five-weather").text("weather "+ data.list[32].weather.description);
    });
    
   
