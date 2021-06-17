@@ -2,16 +2,18 @@ li {
     list-style: none;
 }
 
-button {
-    padding:1%;
-    margin:0.5%;
-    width:55%;
-    margin-left:5%;
+.city-list button {
+    padding: 2%;
+    margin-bottom:2%;
+    width:80%;
+    margin-left:-12.5%;
+    
+    
 }
 
 .search-button {  
-    width:55%;
-    margin-left:3.5%;  
+    width:80%;
+    padding:2%;    
 }
 
 .content{
@@ -35,7 +37,7 @@ button {
 .content {
     display: flex;
     flex-direction:row;
-    background-color:cadetblue;
+    
     opacity:75%;
     width:100%;
     padding: 2%;
@@ -43,8 +45,9 @@ button {
 
 .query-box {
     flex:auto;
-    background-color: teal;  
+    background-color: orange;  
     width:80%;
+    height:100%;
     text-align: center; 
 }
 
@@ -54,40 +57,40 @@ button {
     flex: auto;
     max-width:35%;
     margin-right:-50%;
+    
 }
 
 .rightcolumn {
     flex: auto;
-    
     border-color: black;
-    border-style: solid;
-    
+    border-style: solid;  
     background-color: white;
-    height:50%;
+    height:100%;
 }
 
 .rightcolumn2 {
-   
+    display:flexbox;
+    width:100%;
     height:20%;
-    flex:auto;
-    flex-direction:row;
+    
+    
 }
 
 
 .innerdivision {
-    flex: auto;
-    max-width:50%;
-    border-color: black;
-    border-style: solid;
+    display: flex;
+    flex-direction: row;
+    width:60%;
+    height: 100%;
     margin-left:50%;
 }
 
 .columns {
     flex:auto;
-    width:20%;
-    flex-direction: row;
-    margin-right:0%;
+    margin-right:0px;
+    width:15%;
     padding:2%;
+    margin:1%;
     background-color: black;
     color:white;
 }
@@ -98,4 +101,13 @@ button {
     
 }
 
+.uv {
+    background-color:green;
+    width:fit-content;
+}
 
+.lowerdivision {
+    display: flex;
+    flex-direction: row;
+    margin:auto;
+}
