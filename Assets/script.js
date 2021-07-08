@@ -26,7 +26,7 @@ var temperature = "";
 
 
 //https://api.openweathermap.org/data/2.5/onecall/timemachine?lat={lat}&lon={lon}&dt={time}&appid={API key}
-//https://pro.openweathermap.org/data/2.5/forecast/hourly?q=Seattle&appid=cbe8fc6d3eba09369c7445d7ce20d535
+//https://api.openweathermap.org/data/2.5/forecast?q=Seattle&appid=cbe8fc6d3eba09369c7445d7ce20d535
 //https://api.openweathermap.org/data/2.5/weather?q=seattle&appid=cbe8fc6d3eba09369c7445d7ce20d535&unit=metric
 
 
@@ -148,7 +148,7 @@ function getdata () {
      replace2.innerHTML = "Humidity: " + cityForecast;
     
      replace3.innerHTML = data.name + " " + onlyMonthDayYear;
-     replace4.innerHTML = "Wind: " + data.wind.speed + " MPH";
+     replace4.innerHTML = "Wind: " + data.wind.deg + " direction";
      replace5.innerHTML = "UV: " + data.clouds.all + "%";
      
     
@@ -178,10 +178,8 @@ function getdata () {
                 } else if (gradient > 60 && gradient <= 80) {
                     $('.uv').css("background-color" , "green");
                 } else if (gradient > 80 && gradient <= 100) {
-                    $('.uv').css("background0color" , "lime");
+                    $('.uv').css("background0color" , "blue");
                 }
-
-
                 getFuture();
     return;
  
@@ -214,11 +212,11 @@ function getFuture() {
     $("#city-name3").text(cityName);
     $("#city-name4").text(cityName);
     $("#city-name5").text(cityName);
-     $("#day-one-time").text(data.list[0].dt_txt);
-     $("#day-two-time").text(data.list[8].dt_txt);
-     $("#day-three-time").text(data.list[16].dt_txt);
-     $("#day-four-time").text(data.list[24].dt_txt);
-     $("#day-five-time").text(data.list[32].dt_txt);
+     $("#day-one-time").text(moment(data.list[0].dt_txt).format("MM-DD-YYYY"));
+     $("#day-two-time").text(moment(data.list[8].dt_txt).format("MM-DD-YYYY"));
+     $("#day-three-time").text(moment(data.list[16].dt_txt).format("MM-DD-YYYY"));
+     $("#day-four-time").text(moment(data.list[24].dt_txt).format("MM-DD_YYYY"));
+     $("#day-five-time").text(moment(data.list[32].dt_txt).format("MM-DD-YYYY"));
      console.log(data.list[0].dt_txt);
      $("#day-one-temperature").text("Temperature " +data.list[0].main.temp);
      $("#day-two-temperature").text("Temperature " +data.list[8].main.temp);
@@ -226,17 +224,17 @@ function getFuture() {
      $("#day-four-temperature").text("Temperature " +data.list[24].main.temp);
      $("#day-five-temperature").text("Temperature "+ data.list[32].main.temp);
      //Finds Humidity in next 5 days
-     $("#day-one-precipitation").text("Precipitation % " +data.list[0].pop);
-     $("#day-two-precipitation").text("Precipitation % " +data.list[8].pop);
-     $("#day-three-precipitation").text("Precipitation % " +data.list[16].pop);
+     $("#day-one-precipitation").text("Rain % " +data.list[0].pop);
+     $("#day-two-precipitation").text("Rain % " +data.list[8].pop);
+     $("#day-three-precipitation").text("Rain % " +data.list[16].pop);
      $("#day-four-precipitation").text("Precipitation % " +data.list[24].pop);
      $("#day-five-precipitation").text("Precipitation % "+ data.list[32].pop);
     // Finds Wind Forecast
-     $("#day-one-wind").text("Wind " +data.list[0].wind.speed);
-     $("#day-two-wind").text("Wind " +data.list[8].wind.speed);
-     $("#day-three-wind").text("Wind " +data.list[16].wind.speed);
-     $("#day-four-wind").text("Wind " +data.list[24].wind.speed);
-     $("#day-five-wind").text("Wind "+ data.list[32].wind.speed);
+     $("#day-one-wind").text("Wind " +data.list[0].wind.deg);
+     $("#day-two-wind").text("Wind " +data.list[8].wind.deg);
+     $("#day-three-wind").text("Wind " +data.list[16].wind.deg);
+     $("#day-four-wind").text("Wind " +data.list[24].wind.deg);
+     $("#day-five-wind").text("Wind "+ data.list[32].wind.deg);
      // Finds Weather
    
      $("#day-one-weather").text("weather " +data.list[0].weather.description);
@@ -244,10 +242,116 @@ function getFuture() {
      $("#day-three-weather").text("weather " +data.list[16].weather.description);
      $("#day-four-weather").text("weather " +data.list[24].weather.description);
      $("#day-five-weather").text("weather "+ data.list[32].weather.description);
+     // Finds UV
+     $("#day-one-uv").text("UV " + data.list[0].clouds.all);
+     $("#day-two-uv").text("UV " + data.list[8].clouds.all);
+     $("#day-three-uv").text("UV " + data.list[16].clouds.all);
+     $("#day-four-uv").text("UV " + data.list[24].clouds.all);
+     $("#day-five-uv").text("UV " + data.list[32].clouds.all);
+     colorChange2();
+     
    });
    
   
 }
+
+function colorChange2 () {
+  var requestUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + apiKEY + "&units=" + unitsMeasurement;
+  fetch(requestUrl)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    
+   var gradient = data.list[0].clouds.all;
+   console.log(gradient1);
+               if (gradient1 <= 20){
+                   $('.uv1').css("background-color" , "red");
+               } else if (gradient1 > 20 && gradient1 <= 40) {
+                   $('.uv1').css("background-color" , "orange");
+               } else if (gradient1 > 40 && gradient1 <= 60 ) {
+                   $('.uv1').css("background-color" , "yellow");
+               } else if (gradient1 > 60 && gradient1 <= 80) {
+                   $('.uv1').css("background-color" , "green");
+               } else if (gradient1 > 80 && gradient1 <= 100) {
+                   $('.uv1').css("background0color" , "blue");
+               }
+              
+               var gradient2 = data.list[8].clouds.all;
+              console.log(gradient2);
+               if (gradient2 <= 20){
+                   $('.uv2').css("background-color" , "red");
+               } else if (gradient2 > 20 && gradient2 <= 40) {
+                   $('.uv2').css("background-color" , "orange");
+               } else if (gradient2 > 40 && gradient2 <= 60 ) {
+                   $('.uv2').css("background-color" , "yellow");
+               } else if (gradient2 > 60 && gradient2 <= 80) {
+                   $('.uv2').css("background-color" , "green");
+               } else if (gradient2 > 80 && gradient2 <= 100) {
+                   $('.uv2').css("background0color" , "blue");
+               }
+
+               var gradient3 = data.list[16].clouds.all;
+              console.log(gradient3);
+               if (gradient3 <= 20){
+                   $('.uv3').css("background-color" , "red");
+               } else if (gradient3 > 20 && gradient3 <= 40) {
+                   $('.uv3').css("background-color" , "orange");
+               } else if (gradient3 > 40 && gradient3 <= 60 ) {
+                   $('.uv3').css("background-color" , "yellow");
+               } else if (gradient3 > 60 && gradient3 <= 80) {
+                   $('.uv3').css("background-color" , "green");
+               } else if (gradient3 > 80 && gradient3 <= 100) {
+                   $('.uv3').css("background0color" , "blue");
+               }
+
+               var gradient4 = data.list[24].clouds.all;
+   console.log(gradient);
+               if (gradient4 <= 20){
+                   $('.uv4').css("background-color" , "red");
+               } else if (gradient4 > 20 && gradient4 <= 40) {
+                   $('.uv4').css("background-color" , "orange");
+               } else if (gradient4 > 40 && gradient4 <= 60 ) {
+                   $('.uv4').css("background-color" , "yellow");
+               } else if (gradient4 > 60 && gradient4 <= 80) {
+                   $('.uv4').css("background-color" , "green");
+               } else if (gradient4 > 80 && gradient4 <= 100) {
+                   $('.uv4').css("background0color" , "blue");
+               }
+
+               var gradient5 = data.list[32].clouds.all;
+                 
+               if (gradient5 <= 20){
+                   $('.uv5').css("background-color" , "red");
+               } else if (gradient5 > 20 && gradient5 <= 40) {
+                   $('.uv5').css("background-color" , "orange");
+               } else if (gradient5 > 40 && gradient5 <= 60 ) {
+                   $('.uv5').css("background-color" , "yellow");
+               } else if (gradient5 > 60 && gradient5 <= 80) {
+                   $('.uv5').css("background-color" , "green");
+               } else if (gradient5 > 80 && gradient5 <= 100) {
+                   $('.uv5').css("background0color" , "blue");
+               }
+               
+
+  });
+  
+ }
+
+ 
+
+
+  
+
+ 
+
+ 
+    
+   
+               
+  
+
+
 
 function previousData() {
   console.log("The previousData function is running");

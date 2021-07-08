@@ -79,18 +79,22 @@ li {
 
 .innerdivision {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width:60%;
     height: 100%;
-    margin-left:50%;
+    margin-left:48%;
+    
 }
 
 .columns {
     flex:auto;
-    margin-right:0px;
-    width:15%;
-    padding:2%;
+    
+    width: 20%;
+  
+    
     margin:1%;
+
+    
     background-color: black;
     color:white;
 }
@@ -98,6 +102,7 @@ li {
 
 .displayDATA {
     text-align:center;
+    padding-right:50%;
     
 }
 
@@ -110,4 +115,5 @@ li {
     display: flex;
     flex-direction: row;
     margin:auto;
+    
 }
