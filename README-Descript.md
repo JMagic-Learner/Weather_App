@@ -1,4 +1,7 @@
 ## Weather Application
+        Link to deployed application: https://jmagic-learner.github.io/Weather_App/
+![image](https://user-images.githubusercontent.com/81824772/124873822-d0ae7e00-df7b-11eb-82d5-10ef6ed20668.png)
+
 
         
 ## Description
