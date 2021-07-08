@@ -106,7 +106,7 @@ li {
     
 }
 
-.uv {
+.uv,.uv1, .uv2, .uv3, .uv4, .uv5 {
     background-color:green;
     width:fit-content;
 }
